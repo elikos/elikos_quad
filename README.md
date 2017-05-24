@@ -3,7 +3,7 @@ Ce repo contient l'arborescence de fichiers nécessaire au fonctionnement du qua
 
 # Pour démarrer avec l'utilisation de ce repo
 	git submodule init
-	git submodule update --remote --recursive
+	git submodule update --recursive
 
 # Pour mettre à jour
-	git submodule update --remote --recursive
+	git submodule foreach git pull
