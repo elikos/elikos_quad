@@ -4,6 +4,6 @@ Ce repo contient l'arborescence de fichiers nécessaire au fonctionnement du qua
 # Pour démarrer avec l'utilisation de ce repo
 	git submodule init
 	git submodule update --recursive
-
 # Pour mettre à jour
-	git submodule foreach git pull
+Faire un git pull des modifications sur chaque repo.  
+Notez que les packages realsense et mavros doivent etre sur la branche indigo-devel.
