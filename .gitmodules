@@ -10,7 +10,7 @@
 	path = driver-ws/src/mavros
 	url = https://github.com/elikos/mavros.git
 [submodule "driver-ws/src/mavros"]
-	branch = indigo_devel
+	branch = indigo-devel
 [submodule "elikos-ws/src/elikos_ros"]
 	path = elikos-ws/src/elikos_ros
 	url = https://github.com/elikos/elikos_ros.git
