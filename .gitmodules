@@ -5,7 +5,7 @@
 	path = driver-ws/src/realsense
 	url = https://github.com/intel-ros/realsense.git
 [submodule "drivers_ws/src/realsense"]
-	branch = indigo_devel
+	branch = indigo-devel
 [submodule "driver-ws/src/mavros"]
 	path = driver-ws/src/mavros
 	url = https://github.com/elikos/mavros.git
