@@ -1,11 +1,6 @@
 [submodule "util-ws/src/elikos_util"]
 	path = util-ws/src/elikos_util
 	url = https://github.com/elikos/elikos_util.git
-[submodule "driver-ws/src/realsense"]
-	path = driver-ws/src/realsense
-	url = https://github.com/intel-ros/realsense.git
-[submodule "drivers_ws/src/realsense"]
-	branch = indigo_devel
 [submodule "driver-ws/src/mavros"]
 	path = driver-ws/src/mavros
 	url = https://github.com/elikos/mavros/tree/indigo-devel
