@@ -50,14 +50,14 @@ done
 if [ "$VICON" = true ] ; then
     echo 'Démarrage de vicon_bridge!'
     source ~/ros-workspaces/util-ws/devel/setup.bash
-    roslaunch elikos_vicon_remapping elikos_vicon_remapping.launch &
+    roslaunch elikos_vicon_remapping elikos_vicon_remapping.launch > /dev/null &
 fi
 # Démarrage des processus.
 if [ "$START" = true ] ; then
     echo 'Démarrage des processus!'
     ~/ros-workspaces/ipexport.sh
     source ~/ros-workspaces/elikos-ws/devel/setup.bash
-    #roslaunch elikos_ros elikos_px4.launch &
+    roslaunch elikos_ros elikos_px4.launch > /dev/null &
 # Arrêt des processus.
 elif [ "$STOP" = true ] ; then
     echo 'Arrêt des processus!'
@@ -68,10 +68,9 @@ elif [ "$STOP" = true ] ; then
 # Initialisation d''elikos_arena_origin.
 elif [ "$ORIGIN_INIT" = true ] ; then
     echo 'Initialisation d''elikos_arena_origin!'
-    rosservice call /elikos_origin_init
+    rosservice call /elikos_origin_init  > /dev/null
 fi
 if [ "$STATIC_TRANSFORM" = true ] ; then
     echo 'Transformation statique!'
-    echo "$X" "$Y" "$Z"
-    rosrun tf static_transform_publisher "$X" "$Y" "$Z" 0 0 0 1 elikos_arena_origin elikos_vision 100 &
+    rosrun tf static_transform_publisher "$X" "$Y" "$Z" 0 0 0 1 elikos_arena_origin elikos_vision 100 > /dev/null &
 fi
