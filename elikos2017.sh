@@ -6,6 +6,7 @@ STOP=false
 VICON=false
 STATIC_TRANSFORM=false
 ORIGIN_INIT=false
+SETPOINT=false
 X=0
 Y=0
 Z=2
@@ -33,11 +34,20 @@ case $key in
     STOP=true
     shift
     ;;
-    -i|--init)
+    init)
     ORIGIN_INIT=true
     START=false
     STOP=false
     VICON=false
+    shift
+    ;;
+    setpoint)
+    SETPOINT=true
+    START=false
+    STOP=false
+    X="$2"
+    Y="$3"
+    Z="$4"
     shift
     ;;
     *)
@@ -46,17 +56,32 @@ esac
 shift
 done
 
+# Lancement d'un setpoint static.
+if [ "$SETPOINT" = true ] ; then
+    echo 'SETPOINT statique!'
+    rosrun tf static_transform_publisher "$X" "$Y" "$Z" 0 0 0 1 elikos_arena_origin elikos_setpoint 100 > /dev/null &
+    sleep 2
+fi
 # Démarrage de vicon_bridge.
 if [ "$VICON" = true ] ; then
     echo 'Démarrage de vicon_bridge!'
     source ~/ros-workspaces/util-ws/devel/setup.bash
     roslaunch elikos_vicon_remapping elikos_vicon_remapping.launch > /dev/null &
+    sleep 2
 fi
 # Démarrage des processus.
 if [ "$START" = true ] ; then
     echo 'Démarrage des processus!'
+    roscore > /dev/null &
+    sleep 2
+if [ "$STATIC_TRANSFORM" = true ] ; then
+    echo 'Transformation statique!'
+    rosrun tf static_transform_publisher "$X" "$Y" "$Z" 0 0 0 1 elikos_arena_origin elikos_vision 100 > /dev/null &
+    sleep 2
+fi
     ~/ros-workspaces/ipexport.sh
     source ~/ros-workspaces/elikos-ws/devel/setup.bash
+    echo 'Launch de mavros et d elikos_origin_init'
     roslaunch elikos_ros elikos_px4.launch > /dev/null &
 # Arrêt des processus.
 elif [ "$STOP" = true ] ; then
@@ -65,12 +90,9 @@ elif [ "$STOP" = true ] ; then
     killall static_transform_publisher
     killall elikos_origin_init
     killall mavros_node
+    killall roscore
 # Initialisation d''elikos_arena_origin.
 elif [ "$ORIGIN_INIT" = true ] ; then
     echo 'Initialisation d''elikos_arena_origin!'
     rosservice call /elikos_origin_init  > /dev/null
-fi
-if [ "$STATIC_TRANSFORM" = true ] ; then
-    echo 'Transformation statique!'
-    rosrun tf static_transform_publisher "$X" "$Y" "$Z" 0 0 0 1 elikos_arena_origin elikos_vision 100 > /dev/null &
 fi
