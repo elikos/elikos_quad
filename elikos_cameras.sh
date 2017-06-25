@@ -28,7 +28,7 @@ done
 # Démarrage des processus.
 if [ "$START" = true ] ; then
     echo 'Démarrage des processus!'
-    source ~/ros-workspaces/elikos-ws/devel/setup.bash
+    source ~/elikos_quad/elikos-ws/devel/setup.bash
     roslaunch elikos_ros elikos_realsense_left.launch > /dev/null &
     sleep 2
     roslaunch elikos_ros elikos_realsense_right.launch > /dev/null &

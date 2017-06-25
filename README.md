@@ -8,7 +8,7 @@ Ce repo contient l'arborescence de fichiers nécessaire au fonctionnement du qua
 Faire un git pull des modifications sur chaque repo.  
 Notez que les packages realsense et mavros doivent etre sur la branche indigo-devel.
 
-# Script iarc7.sh
+# Script elikos2017.sh
 Script pour lancer les processus pour la compétition.
 `./iarc7.sh`
 Arguments :
@@ -17,4 +17,11 @@ Arguments :
 	- `--static` : Démarrage d'une transformation statique pour la vision.
 		- `X Y Z` : Position de la transformation statique.  
 - `stop` : Arrêt des processus.
-- `-i` ou `--init` : Appel au rosservice /elikos_origin_init.
+- `init` : Appel au rosservice /elikos_origin_init.
+- `setpoint` : Transformation statique de elikos_arena_origin a elikos_setpoint.
+	- `X Y Z` : Position de la transformation statique
+
+# Script elikos_camera.sh
+Script de demarrage des drivers de camera.
+- `start` : Démarrage des processus.
+- `stop` : Arrêt des processus.
