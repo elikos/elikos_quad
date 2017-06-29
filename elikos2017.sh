@@ -1,4 +1,3 @@
-#!/bin/bash
 
 # Valeurs par défauts
 START=true
@@ -59,6 +58,7 @@ done
 # Lancement d'un setpoint static.
 if [ "$SETPOINT" = true ] ; then
     echo 'SETPOINT statique!'
+    killall static_transform_publisher
     rosrun tf static_transform_publisher "$X" "$Y" "$Z" 0 0 0 1 elikos_arena_origin elikos_setpoint 100 > /dev/null &
     sleep 2
 fi
@@ -82,6 +82,10 @@ fi
     ~/elikos_quad/ipexport.sh
     source ~/elikos_quad/elikos-ws/devel/setup.bash
     echo 'Launch de mavros et d elikos_origin_init'
+    ./elikos_cameras.sh start
+    sleep 1
+    roslaunch elikos_localization localization.launch > /dev/null &
+    sleep 2 
     roslaunch elikos_ros elikos_px4.launch > /dev/null &
     roslaunch elikos_ros elikos_transformations.launch > /dev/null &
 # Arrêt des processus.
@@ -92,6 +96,7 @@ elif [ "$STOP" = true ] ; then
     killall elikos_origin_init
     killall mavros_node
     killall roscore
+    ./elikos_cameras.sh stop
 # Initialisation d''elikos_arena_origin.
 elif [ "$ORIGIN_INIT" = true ] ; then
     echo 'Initialisation d''elikos_arena_origin!'

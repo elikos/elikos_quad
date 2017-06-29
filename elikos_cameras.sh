@@ -35,6 +35,8 @@ if [ "$START" = true ] ; then
     sleep 2
     roslaunch elikos_ros elikos_realsense_front.launch > /dev/null &
     sleep 2
+    roslaunch elikos_ros elikos_realsense_back.launch > /dev/null &
+    sleep 2
     roslaunch elikos_ros elikos_pointgrey_bottom.launch > /dev/null &
     sleep 2
 # Arrêt des processus.
