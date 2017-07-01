@@ -10,7 +10,7 @@ Notez que les packages realsense et mavros doivent etre sur la branche indigo-de
 
 # Script elikos2017.sh
 Script pour lancer les processus pour la compétition.
-`./iarc7.sh`
+`./elikos2017.sh`
 Arguments :
 - `start` : Démarrage des processus.
 	- `--vicon` : Démarrage de vicon_bridge.
