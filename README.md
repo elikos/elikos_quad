@@ -23,9 +23,9 @@ Faire un git pull des modifications sur chaque repo (inutile si `--remote` est u
 Notez que les packages realsense et mavros doivent etre sur la branche indigo-devel.
 
 ## Build
-    ./elikos_quad_build.sh build
+    . ./elikos_quad_build.sh build
 
-ou build et source en ordre: `driver-ws`, `util-ws` et `elikos-ws`
+ou build et source en ordre: `driver-ws`, `util-ws` et `elikos-ws`. Le point devant le point-slash est nécessaire afin de source correctement à l'aide d'un script.
 
 # Script elikos2017.sh
 Script pour lancer les processus pour la compétition.
