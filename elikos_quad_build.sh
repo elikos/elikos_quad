@@ -37,13 +37,16 @@ done
 if [ "$DEPENDENCIES" = true ] ; then
     echo 'Installation des dépendances (indigo)!'
     sudo apt-get install -y ros-indigo-mavros ros-indigo-mavros-extras ros-indigo-pointgrey-camera-driver ros-indigo-moveit
+    sudo apt install -y python-pip
+    sudo pip install --upgrade pip
+    sudo pip install numba scipy numpy numpy-quaternion
 fi
 
 # Submodules init
 if [ "$SUBMODULES" = true ] ; then
     echo 'Initialisation des submodules!'
-    #git submodule init
-	#git submodule update --recursive --remote
+    git submodule init
+	git submodule update --recursive --remote
 fi
 
 # Build
