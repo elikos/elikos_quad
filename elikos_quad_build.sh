@@ -36,7 +36,9 @@ done
 # Dependencies
 if [ "$DEPENDENCIES" = true ] ; then
     echo 'Installation des dépendances (indigo)!'
-    sudo apt-get install -y ros-indigo-mavros ros-indigo-mavros-extras ros-indigo-pointgrey-camera-driver ros-indigo-moveit
+    sudo apt-get install -y ros-indigo-mavros ros-indigo-mavros-extras ros-indigo-pointgrey-camera-driver ros-indigo-moveit python-pip
+    sudo pip install --upgrade pip
+    sudo pip install numba scipy numpy numpy-quaternion
 fi
 
 # Submodules init
