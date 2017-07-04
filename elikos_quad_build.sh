@@ -45,8 +45,8 @@ fi
 # Submodules init
 if [ "$SUBMODULES" = true ] ; then
     echo 'Initialisation des submodules!'
-    #git submodule init
-	#git submodule update --recursive --remote
+    git submodule init
+	git submodule update --recursive --remote
 fi
 
 # Build
