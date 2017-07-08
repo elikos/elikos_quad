@@ -2,15 +2,37 @@
 Ce repo contient l'arborescence de fichiers nécessaire au fonctionnement du quadricoptère.
 
 # Pour démarrer avec l'utilisation de ce repo
+
+## Installation des dépendances
+    ./elikos_quad_build.sh init --dep
+
+ou
+
+	sudo apt-get install -y ros-$ROS_DISTRO-mavros ros-$ROS_DISTRO-mavros-extras ros-$ROS_DISTRO-pointgrey-camera-driver ros-$ROS_DISTRO-moveit
+    sudo apt install -y python-pip
+    sudo pip install --upgrade pip
+    sudo pip install numba scipy numpy numpy-quaternion
+
+## Initialisation et update des submodules
+    ./elikos_quad_build.sh init --submod
+
+ou
+
 	git submodule init
-	git submodule update --recursive
-# Pour mettre à jour
-Faire un git pull des modifications sur chaque repo.  
+	git submodule update --recursive --remote
+
+### Pour mettre à jour
+Faire un git pull des modifications sur chaque repo (inutile si `--remote` est utilisé).  
 Notez que les packages realsense et mavros doivent etre sur la branche indigo-devel.
+
+## Build
+    . ./elikos_quad_build.sh build
+
+ou build et source en ordre: `driver-ws`, `util-ws` et `elikos-ws`. Le point devant le point-slash est nécessaire afin de source correctement à l'aide d'un script.
 
 # Script elikos2017.sh
 Script pour lancer les processus pour la compétition.
-`./iarc7.sh`
+`./elikos2017.sh`
 Arguments :
 - `start` : Démarrage des processus.
 	- `--vicon` : Démarrage de vicon_bridge.
