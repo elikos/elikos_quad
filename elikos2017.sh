@@ -88,6 +88,7 @@ fi
     sleep 2 
     roslaunch elikos_ros elikos_px4.launch > /dev/null &
     roslaunch elikos_ros elikos_transformations.launch > /dev/null &
+    roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
 # Arrêt des processus.
 elif [ "$STOP" = true ] ; then
     echo 'Arrêt des processus!'
@@ -100,5 +101,6 @@ elif [ "$STOP" = true ] ; then
 # Initialisation d''elikos_arena_origin.
 elif [ "$ORIGIN_INIT" = true ] ; then
     echo 'Initialisation d''elikos_arena_origin!'
-    rosservice call /elikos_origin_init  > /dev/null
+    rosservice call --wait /elikos_origin_init  > /dev/null
+    echo 'elikos_arena_origin initialisé :)'
 fi
