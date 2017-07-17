@@ -79,7 +79,7 @@ if [ "$STATIC_TRANSFORM" = true ] ; then
     rosrun tf static_transform_publisher "$X" "$Y" "$Z" 0 0 0 1 elikos_arena_origin elikos_vision 100 > /dev/null &
     sleep 2
 fi
-    ~/elikos_quad/ipexport.sh
+    source ~/elikos_quad/ipexport.sh
     source ~/elikos_quad/elikos-ws/devel/setup.bash
     echo 'Launch de mavros et d elikos_origin_init'
     ./elikos_cameras.sh start
