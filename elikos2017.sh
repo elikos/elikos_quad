@@ -84,11 +84,13 @@ fi
     echo 'Launch de mavros et d elikos_origin_init'
     ./elikos_cameras.sh start
     sleep 1
-    roslaunch elikos_localization localization.launch > /dev/null &
+    #roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
+    roslaunch elikos_localization localization.launch &> /dev/null &
+    #roslaunch elikos_ros elikos_multi_cameras.launch > /dev/null &
+    echo 'Localisation et controle lance'
+    roslaunch elikos_ros elikos_px4.launch &
     sleep 2 
-    roslaunch elikos_ros elikos_px4.launch > /dev/null &
-    roslaunch elikos_ros elikos_transformations.launch > /dev/null &
-    roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
+    roslaunch elikos_ros elikos_transformations.launch &> /dev/null &
 # Arrêt des processus.
 elif [ "$STOP" = true ] ; then
     echo 'Arrêt des processus!'
@@ -101,6 +103,6 @@ elif [ "$STOP" = true ] ; then
 # Initialisation d''elikos_arena_origin.
 elif [ "$ORIGIN_INIT" = true ] ; then
     echo 'Initialisation d''elikos_arena_origin!'
-    rosservice call --wait /elikos_origin_init  > /dev/null
+    rosservice call --wait /elikos_origin_init  > /dev/null 
     echo 'elikos_arena_origin initialisé :)'
 fi
