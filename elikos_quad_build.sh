@@ -3,7 +3,7 @@
 # Valeurs par défauts
 SUBMODULES=false
 DEPENDENCIES=false
-BUILD=false
+BUILD=true
 
 # Extraction des paramètres
 while [[ $# -gt 0 ]]
@@ -15,6 +15,7 @@ case $key in
     shift
     ;;
     init)
+	BUILD=false
     if [ "$2" = --dep ] ; then
         DEPENDENCIES=true
     elif [ "$2" = --submod ] ; then

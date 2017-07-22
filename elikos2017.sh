@@ -85,10 +85,10 @@ fi
     ./elikos_cameras.sh start
     sleep 1
     #roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
-    roslaunch elikos_localization localization.launch &> /dev/null &
-    #roslaunch elikos_ros elikos_multi_cameras.launch > /dev/null &
+    #roslaunch elikos_localization localization.launch &
+    roslaunch elikos_ros elikos_multi_cameras.launch > /dev/null &
     echo 'Localisation et controle lance'
-    roslaunch elikos_ros elikos_px4.launch &
+    roslaunch elikos_ros elikos_px4.launch > /dev/null &
     sleep 2 
     roslaunch elikos_ros elikos_transformations.launch &> /dev/null &
 # Arrêt des processus.
