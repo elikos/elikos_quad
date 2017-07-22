@@ -6,6 +6,7 @@ VICON=false
 STATIC_TRANSFORM=false
 ORIGIN_INIT=false
 SETPOINT=false
+VIS_AI=false
 X=0
 Y=0
 Z=2
@@ -35,6 +36,13 @@ case $key in
     ;;
     init)
     ORIGIN_INIT=true
+    START=false
+    STOP=false
+    VICON=false
+    shift
+    ;;
+    vis-ai)
+    VIS_AI=true
     START=false
     STOP=false
     VICON=false
@@ -105,4 +113,11 @@ elif [ "$ORIGIN_INIT" = true ] ; then
     echo 'Initialisation d''elikos_arena_origin!'
     rosservice call --wait /elikos_origin_init  > /dev/null 
     echo 'elikos_arena_origin initialisé :)'
+elif [ "$VIS_AI" = true ] ; then
+    echo "Launch de la vision et de l'AI :p"
+    source ~/elikos_quad/elikos-ws/devel/setup.bash
+    roslaunch elikos_localization localization.launch > /dev/null &
+    sleep 2
+    roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
+    echo "Vision et AI lancé"
 fi
