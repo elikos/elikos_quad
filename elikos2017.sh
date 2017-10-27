@@ -7,6 +7,7 @@ STATIC_TRANSFORM=false
 ORIGIN_INIT=false
 SETPOINT=false
 VIS_AI=false
+VIS=false
 X=0
 Y=0
 Z=2
@@ -46,6 +47,14 @@ case $key in
     START=false
     STOP=false
     VICON=false
+    shift
+    ;;
+    vision)
+    VIS_AI=false
+    START=false
+    STOP=false
+    VICON=false
+    VIS=true
     shift
     ;;
     setpoint)
@@ -94,7 +103,7 @@ fi
     sleep 1
     #roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
     #roslaunch elikos_localization localization.launch &
-    roslaunch elikos_ros elikos_multi_cameras.launch > /dev/null &
+    #roslaunch elikos_ros elikos_multi_cameras.launch > /dev/null &
     echo 'Localisation et controle lance'
     roslaunch elikos_ros elikos_px4.launch > /dev/null &
     sleep 2 
@@ -111,13 +120,19 @@ elif [ "$STOP" = true ] ; then
 # Initialisation d''elikos_arena_origin.
 elif [ "$ORIGIN_INIT" = true ] ; then
     echo 'Initialisation d''elikos_arena_origin!'
-    rosservice call --wait /elikos_origin_init  > /dev/null 
+    rosservice call --wait /elikos_origin_init  > /dev/null
+    rosservice call /clear_octomap > /dev/null
     echo 'elikos_arena_origin initialisé :)'
 elif [ "$VIS_AI" = true ] ; then
     echo "Launch de la vision et de l'AI :p"
     source ~/elikos_quad/elikos-ws/devel/setup.bash
-    roslaunch elikos_localization localization.launch > /dev/null &
-    sleep 2
-    roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
+    #roslaunch elikos_localization localization.launch > /dev/null &
+    #sleep 2
+    #roslaunch elikos_ros elikos_ai_control.launch > /dev/null &
     echo "Vision et AI lancé"
+elif [ "$VIS" = true ] ; then
+    echo "Launch vision"
+    source ~/elikos_quad/elikos-ws/devel/setup.bash
+    roslaunch elikos_localization localization.launch > /dev/null &
+    echo "vision lance"
 fi
