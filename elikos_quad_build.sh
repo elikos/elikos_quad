@@ -37,10 +37,10 @@ done
 # Dependencies
 if [ "$DEPENDENCIES" = true ] ; then
     echo 'Installation des dépendances (indigo)!'
-    sudo apt-get install -y ros-$ROS_DISTRO-mavros ros-$ROS_DISTRO-mavros-extras ros-$ROS_DISTRO-pointgrey-camera-driver ros-$ROS_DISTRO-moveit
+    sudo apt-get install -y ros-$ROS_DISTRO-mavros ros-$ROS_DISTRO-mavros-extras ros-$ROS_DISTRO-pointgrey-camera-driver ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-mavros-msgs 
     sudo apt install -y python-pip
     sudo pip install --upgrade pip
-    sudo pip install numba scipy numpy numpy-quaternion
+    sudo pip install numba scipy numpy numpy-quaternion catkin_tools
 fi
 
 # Submodules init

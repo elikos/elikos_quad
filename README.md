@@ -8,10 +8,10 @@ Ce repo contient l'arborescence de fichiers nécessaire au fonctionnement du qua
 
 ou
 
-	sudo apt-get install -y ros-$ROS_DISTRO-mavros ros-$ROS_DISTRO-mavros-extras ros-$ROS_DISTRO-pointgrey-camera-driver ros-$ROS_DISTRO-moveit
+	sudo apt-get install -y ros-$ROS_DISTRO-mavros ros-$ROS_DISTRO-mavros-extras ros-$ROS_DISTRO-pointgrey-camera-driver ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-mavros-msgs
     sudo apt install -y python-pip
     sudo pip install --upgrade pip
-    sudo pip install numba scipy numpy numpy-quaternion
+    sudo pip install numba scipy numpy numpy-quaternion catkin_tools
 
 ## Initialisation et update des submodules
     ./elikos_quad_build.sh init --submod
