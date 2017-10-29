@@ -4,6 +4,7 @@
 SUBMODULES=false
 DEPENDENCIES=false
 BUILD=true
+CLEAN=false
 
 # Extraction des paramètres
 while [[ $# -gt 0 ]]
@@ -12,6 +13,11 @@ key="$1"
 case $key in
     build)
     BUILD=true
+    shift
+    ;;
+    clean)
+	BUILD=false
+    CLEAN=true
     shift
     ;;
     init)
@@ -73,6 +79,20 @@ if [ "$BUILD" = true ] ; then
     catkin build --workspace elikos-ws/
     echo 'Sourcing elikos-ws'
     source elikos-ws/devel/setup.bash
+fi
+
+# Clean
+if [ "$CLEAN" = true ] ; then
+    echo 'Cleaning!'
+
+    echo 'driver-ws'
+    catkin clean --workspace driver-ws/ --y
+
+    echo 'util-ws'
+    catkin clean --workspace util-ws/ --y
+
+    echo 'elikos-ws'
+    catkin clean --workspace elikos-ws/ --y
 fi
 
 echo 'All done!'
