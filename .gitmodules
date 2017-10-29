@@ -12,3 +12,6 @@
 [submodule "driver-ws/src/imu_vn_100"]
 	path = driver-ws/src/imu_vn_100
 	url = https://github.com/elikos/imu_vn_100.git
+[submodule "driver-ws/src/realsense_samples_ros"]
+	path = driver-ws/src/realsense_samples_ros
+	url = https://github.com/IntelRealSense/realsense_samples_ros
