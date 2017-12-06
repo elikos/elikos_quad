@@ -34,6 +34,11 @@ esac
 shift
 done
 
+# Check ROS version
+if [ "$ROS_DISTRO" != "kinetic" ] ; then
+    echo -e "\033[0;33mAttention! Il est conseillé d'avoir ROS kinetic!\033[0m"
+fi
+
 # Dependencies
 if [ "$DEPENDENCIES" = true ] ; then
     echo 'Installation des dépendances (selon $ROS_DISTRO)!'
@@ -70,4 +75,4 @@ if [ "$BUILD" = true ] ; then
     source elikos-ws/devel/setup.bash
 fi
 
-echo 'All done!'
+echo -e '\033[0;32mAll done!\033[0m'
