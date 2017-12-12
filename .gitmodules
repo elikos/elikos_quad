@@ -12,3 +12,6 @@
 [submodule "driver-ws/src/imu_vn_100"]
 	path = driver-ws/src/imu_vn_100
 	url = https://github.com/elikos/imu_vn_100.git
+[submodule "elikos-ws/src/elikos_msgs"]
+	path = elikos-ws/src/elikos_msgs
+	url = https://github.com/elikos/elikos_msgs.git
