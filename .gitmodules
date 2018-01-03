@@ -6,12 +6,33 @@
 	url = https://github.com/elikos/mavros.git
 [submodule "driver-ws/src/mavros"]
 	branch = indigo-devel
-[submodule "elikos-ws/src/elikos_ros"]
-	path = elikos-ws/src/elikos_ros
-	url = https://github.com/elikos/elikos_ros.git
 [submodule "driver-ws/src/imu_vn_100"]
 	path = driver-ws/src/imu_vn_100
 	url = https://github.com/elikos/imu_vn_100.git
 [submodule "elikos-ws/src/elikos_msgs"]
 	path = elikos-ws/src/elikos_msgs
 	url = https://github.com/elikos/elikos_msgs.git
+[submodule "elikos-ws/src/elikos_tracking"]
+	path = elikos-ws/src/elikos_tracking
+	url = https://github.com/elikos/elikos_tracking.git
+[submodule "elikos-ws/src/elikos_path_planning_stack"]
+	path = elikos-ws/src/elikos_path_planning_stack
+	url = https://github.com/elikos/elikos_path_planning_stack.git
+[submodule "elikos-ws/src/elikos_localization"]
+	path = elikos-ws/src/elikos_localization
+	url = https://github.com/elikos/elikos_localization.git
+[submodule "elikos-ws/src/elikos_main"]
+	path = elikos-ws/src/elikos_main
+	url = https://github.com/elikos/elikos_main.git
+[submodule "elikos-ws/src/elikos_detection"]
+	path = elikos-ws/src/elikos_detection
+	url = https://github.com/elikos/elikos_detection.git
+[submodule "elikos-ws/src/elikos_decisionmaking"]
+	path = elikos-ws/src/elikos_decisionmaking
+	url = https://github.com/elikos/elikos_decisionmaking.git
+[submodule "elikos-ws/src/elikos_control"]
+	path = elikos-ws/src/elikos_control
+	url = https://github.com/elikos/elikos_control.git
+[submodule "elikos-ws/src/elikos_odometry"]
+	path = elikos-ws/src/elikos_odometry
+	url = https://github.com/elikos/elikos_odometry.git
