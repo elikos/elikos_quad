@@ -10,3 +10,10 @@ CTestTestfile.cmake
 */build/*
 */devel/*
 */logs/*
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.catkin_tools/
+.ycm_extra_conf.py*
