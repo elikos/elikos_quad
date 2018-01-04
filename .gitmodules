@@ -10,7 +10,7 @@
 	path = driver-ws/src/imu_vn_100
 	url = https://github.com/elikos/imu_vn_100.git
 [submodule "elikos-ws/src/elikos_msgs"]
-	path = elikos-ws/src/elikos_msgs
+	path = util-ws/src/elikos_msgs
 	url = https://github.com/elikos/elikos_msgs.git
 [submodule "elikos-ws/src/elikos_tracking"]
 	path = elikos-ws/src/elikos_tracking
@@ -36,3 +36,6 @@
 [submodule "elikos-ws/src/elikos_odometry"]
 	path = elikos-ws/src/elikos_odometry
 	url = https://github.com/elikos/elikos_odometry.git
+[submodule "elikos-ws/src/elikos_remote_calib_client"]
+	path = util-ws/src/elikos_remote_calib_client
+	url = https://github.com/elikos/elikos_remote_calib_client.git
