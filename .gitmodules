@@ -39,3 +39,6 @@
 [submodule "elikos-ws/src/elikos_remote_calib_client"]
 	path = util-ws/src/elikos_remote_calib_client
 	url = https://github.com/elikos/elikos_remote_calib_client.git
+[submodule "driver-ws/src/realsense_samples_ros"]
+	path = driver-ws/src/realsense_samples_ros
+	url = https://github.com/IntelRealSense/realsense_samples_ros

@@ -4,6 +4,7 @@
 SUBMODULES=false
 DEPENDENCIES=false
 BUILD=true
+CLEAN=false
 
 # Extraction des paramètres
 while [[ $# -gt 0 ]]
@@ -12,6 +13,11 @@ key="$1"
 case $key in
     build)
     BUILD=true
+    shift
+    ;;
+    clean)
+	BUILD=false
+    CLEAN=true
     shift
     ;;
     init)
@@ -36,16 +42,21 @@ done
 
 # Check ROS version
 if [ "$ROS_DISTRO" != "kinetic" ] ; then
-    echo -e "\033[0;33mAttention! Il est conseillé d'avoir ROS kinetic!\033[0m"
+    echo -e "\033[0;33mAttention! Il est conseillé (obligé) d'avoir ROS kinetic!\033[0m"
 fi
 
 # Dependencies
 if [ "$DEPENDENCIES" = true ] ; then
-    echo 'Installation des dépendances (selon $ROS_DISTRO)!'
-    sudo apt-get install -y ros-$ROS_DISTRO-mavros ros-$ROS_DISTRO-mavros-extras ros-$ROS_DISTRO-pointgrey-camera-driver ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-mavros-msgs ros-$ROS_DISTRO-control-toolbox
+    echo 'Installation des dépendances (kinetic)!'
+    sudo apt-get install -y ros-kinetic-mavros ros-kinetic-mavros-extras ros-kinetic-pointgrey-camera-driver ros-kinetic-moveit ros-kinetic-mavros-msgs ros-kinetic-control-toolbox
     sudo apt install -y python-pip
     sudo pip install --upgrade pip
     sudo pip install numba scipy numpy numpy-quaternion catkin_tools
+    # Install Intel RealSense SDK for Linux
+    sudo apt-key adv --keyserver keys.gnupg.net --recv-key D6FB2970 
+    sudo sh -c 'echo "deb http://realsense-alm-public.s3.amazonaws.com/apt-repo xenial main" > /etc/apt/sources.list.d/realsense-latest.list'
+    sudo apt update 
+    sudo apt install -y librealsense-object-recognition-dev librealsense-persontracking-dev librealsense-slam-dev libopencv-dev
 fi
 
 # Submodules init
@@ -73,6 +84,20 @@ if [ "$BUILD" = true ] ; then
     catkin build --workspace elikos-ws/
     echo 'Sourcing elikos-ws'
     source elikos-ws/devel/setup.bash
+fi
+
+# Clean
+if [ "$CLEAN" = true ] ; then
+    echo 'Cleaning!'
+
+    echo 'driver-ws'
+    catkin clean --workspace driver-ws/ --y
+
+    echo 'util-ws'
+    catkin clean --workspace util-ws/ --y
+
+    echo 'elikos-ws'
+    catkin clean --workspace elikos-ws/ --y
 fi
 
 echo -e '\033[0;32mAll done!\033[0m'
