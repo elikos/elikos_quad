@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Valeurs par défauts
@@ -29,15 +30,16 @@ done
 if [ "$START" = true ] ; then
     echo 'Démarrage des processus!'
     source ~/elikos_quad/elikos-ws/devel/setup.bash
-    roslaunch elikos_ros elikos_realsense_left.launch > /dev/null &
+    roslaunch elikos_main elikos_realsense_left.launch > /dev/null &
     sleep 2
-    roslaunch elikos_ros elikos_realsense_right.launch > /dev/null &
+    roslaunch elikos_main elikos_realsense_right.launch > /dev/null &
     sleep 2
-    roslaunch elikos_ros elikos_realsense_front.launch > /dev/null &
+    #roslaunch elikos_main elikos_realsense_front.launch > /dev/null &
+    roslaunch realsense_ros_camera demo_zr300_camera.launch > /dev/null &
     sleep 2
-    roslaunch elikos_ros elikos_realsense_back.launch > /dev/null &
+    roslaunch elikos_main elikos_realsense_back.launch > /dev/null &
     sleep 2
-    roslaunch elikos_ros elikos_pointgrey_bottom.launch > /dev/null &
+    roslaunch elikos_main elikos_pointgrey_bottom.launch > /dev/null &
     sleep 2
 # Arrêt des processus.
 elif [ "$STOP" = true ] ; then
