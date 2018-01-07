@@ -40,10 +40,15 @@ esac
 shift
 done
 
+# Check ROS version
+if [ "$ROS_DISTRO" != "kinetic" ] ; then
+    echo -e "\033[0;33mAttention! Il est conseillé (obligé) d'avoir ROS kinetic!\033[0m"
+fi
+
 # Dependencies
 if [ "$DEPENDENCIES" = true ] ; then
     echo 'Installation des dépendances (kinetic)!'
-    sudo apt-get install -y ros-$ROS_DISTRO-mavros ros-$ROS_DISTRO-mavros-extras ros-$ROS_DISTRO-pointgrey-camera-driver ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-mavros-msgs 
+    sudo apt-get install -y ros-kinetic-mavros ros-kinetic-mavros-extras ros-kinetic-pointgrey-camera-driver ros-kinetic-moveit ros-kinetic-mavros-msgs ros-kinetic-control-toolbox
     sudo apt install -y python-pip
     sudo pip install --upgrade pip
     sudo pip install numba scipy numpy numpy-quaternion catkin_tools
@@ -97,4 +102,4 @@ if [ "$CLEAN" = true ] ; then
     catkin clean --workspace elikos-ws/ --y
 fi
 
-echo 'All done!'
+echo -e '\033[0;32mAll done!\033[0m'
