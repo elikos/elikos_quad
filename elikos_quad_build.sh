@@ -56,7 +56,7 @@ if [ "$DEPENDENCIES" = true ] ; then
     sudo apt-key adv --keyserver keys.gnupg.net --recv-key D6FB2970 
     sudo sh -c 'echo "deb http://realsense-alm-public.s3.amazonaws.com/apt-repo xenial main" > /etc/apt/sources.list.d/realsense-latest.list'
     sudo apt update 
-    sudo apt install -y librealsense-object-recognition-dev librealsense-persontracking-dev librealsense-slam-dev libopencv-dev
+    sudo apt install -y librealsense-slam-dev libopencv-dev
     sudo apt-get install ros-$ROS_DISTRO-realsense-camera
     sudo apt install screen
 fi
