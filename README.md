@@ -30,9 +30,21 @@ Notez que les packages realsense et mavros doivent etre sur la branche indigo-de
 
 ou build et source en ordre: `driver-ws`, `util-ws` et `elikos-ws`. Le point devant le point-slash est nécessaire afin de source correctement à l'aide d'un script.
 
+# Script elikos_quad_build.sh
+
+Scrip pour build et setup le workspace.  
+`. ./elikos_quad_build.sh`  
+Arguments :
+- `build` : Build et source les workspaces en ordre [défaut].
+- `init`
+	- `--dep` : Installation des dépendances.
+	- `--submod` : Initialisation et update des submodules.
+	- `--alias` : Ajoute l'alias `srcquad` qui source `elikos-ws/` dans `~/.bashrc` et source le fichier.
+- `clean` : Clean tous les workspaces.
+
 # Script elikos2017.sh
-Script pour lancer les processus pour la compétition.
-`./elikos2017.sh`
+Script pour lancer les processus pour la compétition.  
+`./elikos2017.sh`  
 Arguments :
 - `start` : Démarrage des processus.
 	- `--vicon` : Démarrage de vicon_bridge.
