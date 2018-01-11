@@ -5,6 +5,7 @@ SUBMODULES=false
 DEPENDENCIES=false
 BUILD=true
 CLEAN=false
+ALIAS=false
 
 # Extraction des paramètres
 while [[ $# -gt 0 ]]
@@ -26,11 +27,22 @@ case $key in
         DEPENDENCIES=true
     elif [ "$2" = --submod ] ; then
         SUBMODULES=true
+    elif [ "$2" = --alias ] ; then
+        ALIAS=true
     fi
     if [ "$3" = --dep ] ; then
         DEPENDENCIES=true
     elif [ "$3" = --submod ] ; then
         SUBMODULES=true
+    elif [ "$3" = --alias ] ; then
+        ALIAS=true
+    fi
+    if [ "$4" = --dep ] ; then
+        DEPENDENCIES=true
+    elif [ "$4" = --submod ] ; then
+        SUBMODULES=true
+    elif [ "$4" = --alias ] ; then
+        ALIAS=true
     fi
     shift
     ;;
@@ -100,6 +112,14 @@ if [ "$CLEAN" = true ] ; then
 
     echo 'elikos-ws'
     catkin clean --workspace elikos-ws/ --y
+fi
+
+# Alias
+if [ "$ALIAS" = true ] ; then
+    echo 'Adding alias to ~/.bashrc and sourcing!'
+
+    echo -e '\nalias srcquad="source ~/elikos_quad/elikos-ws/devel/setup.bash"' >> ~/.bashrc
+    source ~/.bashrc
 fi
 
 echo -e '\033[0;32mAll done!\033[0m'
