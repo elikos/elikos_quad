@@ -32,7 +32,7 @@ ou build et source en ordre: `driver-ws`, `util-ws` et `elikos-ws`. Le point dev
 
 # Script elikos_quad_build.sh
 
-Scrip pour build et setup le workspace.  
+Script pour build et setup le workspace. Utiliser avec un point devant le point-slash.  
 `. ./elikos_quad_build.sh`  
 Arguments :
 - `build` : Build et source les workspaces en ordre [défaut].
