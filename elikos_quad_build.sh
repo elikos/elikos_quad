@@ -75,6 +75,9 @@ fi
 
 # Submodules init
 if [ "$SUBMODULES" = true ] ; then
+    echo 'Utilisation de git-credential-helper (caching de 300 secondes)'
+    git config --global credential.helper 'cache --timeout 300'
+
     echo 'Initialisation des submodules!'
     git submodule init
 	git submodule update --recursive --remote
