@@ -1,41 +1,51 @@
 [submodule "util-ws/src/elikos_util"]
 	path = util-ws/src/elikos_util
 	url = https://github.com/elikos/elikos_util.git
+	branch = master
 [submodule "driver-ws/src/mavros"]
 	path = driver-ws/src/mavros
 	url = https://github.com/elikos/mavros.git
-[submodule "driver-ws/src/mavros"]
 	branch = indigo-devel
 [submodule "driver-ws/src/imu_vn_100"]
 	path = driver-ws/src/imu_vn_100
 	url = https://github.com/elikos/imu_vn_100.git
+	branch = master
 [submodule "elikos-ws/src/elikos_msgs"]
 	path = util-ws/src/elikos_msgs
 	url = https://github.com/elikos/elikos_msgs.git
+	branch = master
 [submodule "elikos-ws/src/elikos_tracking"]
 	path = elikos-ws/src/elikos_tracking
 	url = https://github.com/elikos/elikos_tracking.git
+	branch = master
 [submodule "elikos-ws/src/elikos_path_planning_stack"]
 	path = elikos-ws/src/elikos_path_planning_stack
 	url = https://github.com/elikos/elikos_path_planning_stack.git
+	branch = master
 [submodule "elikos-ws/src/elikos_localization"]
 	path = elikos-ws/src/elikos_localization
 	url = https://github.com/elikos/elikos_localization.git
+	branch = master
 [submodule "elikos-ws/src/elikos_main"]
 	path = elikos-ws/src/elikos_main
 	url = https://github.com/elikos/elikos_main.git
+	branch = master
 [submodule "elikos-ws/src/elikos_detection"]
 	path = elikos-ws/src/elikos_detection
 	url = https://github.com/elikos/elikos_detection.git
+	branch = master
 [submodule "elikos-ws/src/elikos_decisionmaking"]
 	path = elikos-ws/src/elikos_decisionmaking
 	url = https://github.com/elikos/elikos_decisionmaking.git
+	branch = master
 [submodule "elikos-ws/src/elikos_control"]
 	path = elikos-ws/src/elikos_control
 	url = https://github.com/elikos/elikos_control.git
+	branch = master
 [submodule "elikos-ws/src/elikos_remote_calib_client"]
 	path = util-ws/src/elikos_remote_calib_client
 	url = https://github.com/elikos/elikos_remote_calib_client.git
+	branch = master
 [submodule "driver-ws/src/realsense_samples_ros"]
 	path = driver-ws/src/realsense_samples_ros
 	url = https://github.com/elikos/realsense_samples_ros
