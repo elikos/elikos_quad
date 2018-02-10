@@ -81,6 +81,10 @@ if [ "$SUBMODULES" = true ] ; then
     echo 'Initialisation des submodules!'
     git submodule init
 	git submodule update --recursive --remote
+
+    echo 'Checkout des branches!'
+    # see https://stackoverflow.com/a/18799234
+    git submodule foreach -q --recursive 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo master)'
 fi
 
 # Build
