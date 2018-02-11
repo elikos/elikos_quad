@@ -2,10 +2,6 @@
 	path = util-ws/src/elikos_util
 	url = https://github.com/elikos/elikos_util.git
 	branch = master
-[submodule "driver-ws/src/mavros"]
-	path = driver-ws/src/mavros
-	url = https://github.com/elikos/mavros.git
-	branch = indigo-devel
 [submodule "driver-ws/src/imu_vn_100"]
 	path = driver-ws/src/imu_vn_100
 	url = https://github.com/elikos/imu_vn_100.git
